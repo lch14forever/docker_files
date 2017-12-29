@@ -8,7 +8,7 @@ cat [docker_file] | docker build  - -t [image_name]
 
 For example:
 ```
-cat DOCKER_FILE | docker build  - -t tiny_rmarkdown
+cat  DOCKER_tiny_rmarkdown | docker build -t tiny_rmarkdown -
 ```
 
 ## Available
