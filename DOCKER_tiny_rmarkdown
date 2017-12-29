@@ -1,0 +1,23 @@
+############################################################
+# Dockerfile to build minimal rmarkdown
+# Based on r-base
+############################################################
+
+FROM r-base
+MAINTAINER Chenhao Li (lich@gis.a-star.edu.sg)
+
+RUN apt-get update
+
+
+################## BEGIN INSTALLATION ######################
+## install system pacakges
+RUN apt-get -y install pandoc
+
+## install yihui's tiny-latex
+RUN wget -qO- 'https://github.com/yihui/tinytex/raw/master/tools/install-unx.sh' | sed 's/~//' | sh
+ENV PATH="${PATH}:/.TinyTeX/bin/x86_64-linux/"
+
+# Install additional R package
+RUN R -e "install.packages('rmarkdown')"
+
+##################### INSTALLATION END #####################
