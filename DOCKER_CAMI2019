@@ -8,7 +8,7 @@ MAINTAINER Chenhao Li (lich@gis.a-star.edu.sg)
 
 RUN apt-get update
 RUN apt install unzip
-
+RUN conda update conda
 ################## BEGIN INSTALLATION ######################
 ## Setup environments
 RUN conda config --add channels defaults && \
